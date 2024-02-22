@@ -25,6 +25,8 @@
 //		- Drawing the HUD graphics every frame
 //		- Handling the custum HUD-update packets
 //
+#pragma warning( disable : 4996 )
+
 typedef unsigned char byte;
 typedef unsigned short word;
 typedef float vec_t;
@@ -39,5 +41,10 @@ typedef int (*pfnUserMsgHook)(const char *pszName, int iSize, void *pbuf);
 
 #include "../engine/cdll_int.h"
 #include "../dlls/cdll_dll.h"
+
+// Modern VS compat
+#if _MSC_VER >= 1910
+#include <cstdlib>
+#endif
 
 extern cl_enginefunc_t gEngfuncs;
